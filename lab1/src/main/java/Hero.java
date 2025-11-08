@@ -1,41 +1,41 @@
-import strategies.MoveStrategy;
+package strategies;
 
 public class Hero {
-    
-    class Position {
-        int x;
-        int y;
 
-        public Position(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
+  public static class Position {
+    int x;
+    int y;
 
-        public void toString() {
-            return "{" + x + ", " + y + "}";
-        }
+    public Position(int x, int y) {
+      this.x = x;
+      this.y = y;
     }
 
-    public void setMoveStrategy(MoveStrategy moveStrategy) {
-        this.moveStrategy = moveStrategy;
+    public String toString() {
+      return "{" + x + ", " + y + "}";
     }
+  }
 
-    public void move(Position positionTo) {
-        moveStrategy.move(this, location);
-    }
+  public void setMoveStrategy(MoveStrategy moveStrategy) {
+    this.moveStrategy = moveStrategy;
+  }
 
-    public void setPosition(Position position) {
-        this.position = position;
-    }
+  public void move(Position positionTo) {
+    moveStrategy.move(this, positionTo);
+  }
 
-    public Position getPosition() {
-        return position;
-    }
+  public void setPosition(Position position) {
+    this.position = position;
+  }
 
-    public void toString() {
-        return "The Hero is at " + position.toString() + " and is " + moveStrategy.getState();
-    }
+  public Position getPosition() {
+    return position;
+  }
 
-    private MoveStrategy moveStrategy = new WalkStrategy();
-    private Position position = new Position(0,0);
+  public String toString() {
+    return "The Hero is at " + position.toString() + " and is " + moveStrategy.getState();
+  }
+
+  private MoveStrategy moveStrategy = new WalkStrategy();
+  private Position position = new Position(0, 0);
 }

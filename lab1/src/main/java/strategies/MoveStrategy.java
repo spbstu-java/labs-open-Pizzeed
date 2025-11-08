@@ -1,8 +1,8 @@
 package strategies;
 
-interface MoveStrategy {
+public interface MoveStrategy {
 
-    void move(Hero hero, Position positionTo);
+  void move(Hero hero, Hero.Position positionTo);
 
-    String getState();
+  String getState();
 }
